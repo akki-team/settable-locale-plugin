@@ -1,0 +1,15 @@
+<container xmlns="http://symfony.com/schema/dic/services">
+    <services>
+        <service class="Akki\SyliusSettableLocalePlugin\Context\SettableLocaleContext"
+                 id="akki_sylius_settable_locale_plugin.context.settable_locale_context"
+                 decorates="sylius.context.locale"
+                 decoration-priority="0"
+                 public="false">
+            <argument type="service" id="akki_sylius_settable_locale_plugin.context.settable_locale_context.inner"/>
+            <argument type="service" id="sylius.locale_provider"/>
+        </service>
+
+        <service id="Akki\SyliusSettableLocalePlugin\Context\SettableLocaleContextInterface"
+                 alias="akki_sylius_settable_locale_plugin.context.settable_locale_context"/>
+    </services>
+</container>
